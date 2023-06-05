@@ -20,6 +20,8 @@ importers:
 
   src/funcs: {}
 
+  src/object: {}
+
   src/promise: {}
 
   toolkit/cast: {}
