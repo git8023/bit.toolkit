@@ -1,5 +1,4 @@
-// import { Jsons } from './Jsons';
-
+import { Jsons } from '@git8023/toolkit.json';
 import { Validation } from '@git8023/toolkit.validation';
 
 export class Objects {
@@ -16,11 +15,9 @@ export class Objects {
     prop?: keyof T
   ) {
     if (Validation.notNil(prop)) {
-      // fixme
-      // const srcVal = Jsons.get(src, `${String(prop)}`);
-      // const tgtVal = Jsons.get(target, `${String(prop)}`);
-      // return srcVal === tgtVal;
-      return src[prop] === target[prop];
+      const srcVal = Jsons.get(src, `${String(prop)}`);
+      const tgtVal = Jsons.get(target, `${String(prop)}`);
+      return srcVal === tgtVal;
     }
 
     return src === target;
