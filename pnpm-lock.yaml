@@ -26,6 +26,8 @@ importers:
 
   src/json: {}
 
+  src/logic: {}
+
   src/object: {}
 
   src/promise: {}

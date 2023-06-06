@@ -4,8 +4,7 @@ import { Validation } from '@git8023/toolkit.validation';
 import { Builders } from '@git8023/toolkit.build';
 import { Functions } from '@git8023/toolkit.funcs';
 import { Jsons } from '@git8023/toolkit.json';
-
-// import { Logics } from './Logics';
+import { Logics } from "@git8023/toolkit.logic";
 
 export class Arrays {
 
@@ -107,26 +106,24 @@ export class Arrays {
       return data;
     }
 
-    // fixme
-    // return Logics
-    //   .case(a.length >= b.length, { src: a, other: b })
-    //   .otherwise({ src: b, other: a })
-    //   .getValue(({ src, other }) => {
-    //     const result: T[] = [];
-    //
-    //     this.foreach(src, itemA => {
-    //       const av = itemHandler(itemA);
-    //       this.foreach(other, itemB => {
-    //         const bv = itemHandler(itemB);
-    //         if (av === bv) {
-    //           result.push(itemA.item);
-    //         }
-    //       });
-    //     });
-    //
-    //     return result;
-    //   });
-    return [];
+    return Logics
+      .case(a.length >= b.length, { src: a, other: b })
+      .otherwise({ src: b, other: a })
+      .getValue(({ src, other }) => {
+        const result: T[] = [];
+
+        this.foreach(src, itemA => {
+          const av = itemHandler(itemA);
+          this.foreach(other, itemB => {
+            const bv = itemHandler(itemB);
+            if (av === bv) {
+              result.push(itemA.item);
+            }
+          });
+        });
+
+        return result;
+      });
   }
 
   /**
@@ -228,13 +225,8 @@ export class Arrays {
         return false;
       }
     });
-    // fixme
-    // const item = Logics.case(-1 !== index, arr[index]).getValue();
-    // return { index: index, item };
-    return {
-      index: index,
-      item: (-1 === index ? undefined : arr[index]) as any
-    };
+    const item = Logics.case(-1 !== index, arr[index]).getValue();
+    return { index: index, item };
   }
 
   /**
@@ -282,9 +274,7 @@ export class Arrays {
     predictor?: fns.ArrayPredictor<T>
   ): types.Nillable<T> {
     const el = Arrays.index(arr, condition, predictor);
-    // fixme
-    // return Logics.case(this.validateIndex(el), () => arr.splice(el.index, 1)[0]).getValue();
-    return null;
+    return Logics.case(this.validateIndex(el), () => arr.splice(el.index, 1)[0]).getValue();
   }
 
   /**

@@ -11,13 +11,13 @@
 {
     "array": {
         "scope": "git8023.toolkit",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "src/array"
     },
     "build": {
         "scope": "git8023.toolkit",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "mainFile": "Builders.ts",
         "rootDir": "src/build"
     },
@@ -35,7 +35,7 @@
     },
     "json": {
         "scope": "git8023.toolkit",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "Jsons.ts",
         "rootDir": "src/json"
     },

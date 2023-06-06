@@ -3,10 +3,8 @@ import { Cast } from '@git8023/toolkit.cast';
 import { Validation } from '@git8023/toolkit.validation';
 import { Objects } from '@git8023/toolkit.object';
 import { Functions } from '@git8023/toolkit.funcs';
-
-// todo wait
-// import { Jsons } from './Jsons';
-// import { Logics } from './Logics';
+import { Jsons } from '@git8023/toolkit.json';
+import { Logics } from '@git8023/toolkit.logic';
 
 export class Builders {
 
@@ -30,8 +28,7 @@ export class Builders {
    * @return (bean: I) => bean[key]
    */
   static getter<T, I = any>(key: keyof I): T {
-    // return ((bean: I) => Jsons.get(bean, key.toString())) as T;
-    return undefined as unknown as any;
+    return ((bean: I) => Jsons.get(bean, String(key))) as unknown as T;
   }
 
   /**
@@ -40,13 +37,12 @@ export class Builders {
    * @return key ? (e=>e[key]) : (e=>e)
    */
   static iteratorGetter<T, I extends types.IteratorItem<E>, E = any>(key?: keyof E): T {
-    // const fn = (e: I) => {
-    //   if (Validation.notEmpty(key))
-    //     return Jsons.get(e.item, key!.toString());
-    //   return e.item;
-    // };
-    // return fn as T;
-    return undefined as unknown as any;
+    const fn = (e: I) => {
+      if (Validation.notEmpty(key))
+        return Jsons.get(e.item, String(key));
+      return e.item;
+    };
+    return fn as unknown as T;
   }
 
   /**
@@ -105,13 +101,12 @@ export class Builders {
     akm?: fns.ArrayKeyMapper<T, R>,
     mod: 'throw' | 'element' = 'throw'
   ): fns.ArrayKeyMapperHandler<T, R> {
-    // return Logics
-    //   .case(akm instanceof Function, () => akm as fns.ArrayKeyMapperHandler<T, R>)
-    //   .case(Validation.is(akm, 'String'), () => Builders.iteratorGetter(akm as string) as R)
-    //   .case(mod === 'element', () => Builders.iteratorGetter() as R)
-    //   .otherwiseThrow(Error('predictor无效. 仅支持String|Function'))
-    //   .getValue();
-    return undefined as unknown as any;
+    return Logics
+      .case(akm instanceof Function, () => akm as fns.ArrayKeyMapperHandler<T, R>)
+      .case(Validation.is(akm, 'String'), () => Builders.iteratorGetter(akm as string) as R)
+      .case(mod === 'element', () => Builders.iteratorGetter() as R)
+      .otherwiseThrow(Error('predictor无效. 仅支持String|Function'))
+      .getValue();
   }
 
   /**
