@@ -69,6 +69,12 @@
         "mainFile": "Promises.ts",
         "rootDir": "src/promise"
     },
+    "storage": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "src/storage"
+    },
     "type-define": {
         "scope": "git8023.toolkit",
         "version": "0.0.2",
