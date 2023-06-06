@@ -39,6 +39,12 @@
         "mainFile": "Jsons.ts",
         "rootDir": "src/json"
     },
+    "logic": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "src/logic"
+    },
     "object": {
         "scope": "git8023.toolkit",
         "version": "0.0.2",
