@@ -1,10 +1,11 @@
 import { types, fns } from '@git8023/toolkit.type-define';
 import { Cast } from '@git8023/toolkit.cast';
 import { Validation } from '@git8023/toolkit.validation';
-import { Jsons } from './Jsons';
+import { Builders } from '@git8023/toolkit.build';
 import { Functions } from '@git8023/toolkit.funcs';
-import { Builders } from './Builders';
-import { Logics } from './Logics';
+import { Jsons } from '@git8023/toolkit.json';
+
+// import { Logics } from './Logics';
 
 export class Arrays {
 
@@ -34,13 +35,13 @@ export class Arrays {
     ) => {
       const key = handler({ item, index });
       if (result[key] && !recover) {
-        throw new Error(`不允许重复Key [${String(key)}]`);
+        throw new Error(`不允许重复Key [${ String(key) }]`);
       }
       result[key] = item;
 
       const children = Functions.call(recursion, item) || [];
       if (Validation.notEmpty(children)) {
-        const childrenMap = Arrays.toMap<T>(children, key, recover, recursion);
+        const childrenMap = Arrays.toMap<T>(children as T[], key, recover, recursion);
         Jsons.merge(childrenMap, result, recover);
       }
     });
@@ -77,7 +78,7 @@ export class Arrays {
       let isInclude = true;
       args.forEach(oel => {
         if (isInclude) {
-          isInclude = isInclude && oel.includes(el);
+          isInclude = isInclude && oel.indexOf(el) !== -1;
         }
       });
       return isInclude;
@@ -106,24 +107,26 @@ export class Arrays {
       return data;
     }
 
-    return Logics
-      .case(a.length >= b.length, { src: a, other: b })
-      .otherwise({ src: b, other: a })
-      .getValue(({ src, other }) => {
-        const result: T[] = [];
-
-        this.foreach(src, itemA => {
-          const av = itemHandler(itemA);
-          this.foreach(other, itemB => {
-            const bv = itemHandler(itemB);
-            if (av === bv) {
-              result.push(itemA.item);
-            }
-          });
-        });
-
-        return result;
-      });
+    // fixme
+    // return Logics
+    //   .case(a.length >= b.length, { src: a, other: b })
+    //   .otherwise({ src: b, other: a })
+    //   .getValue(({ src, other }) => {
+    //     const result: T[] = [];
+    //
+    //     this.foreach(src, itemA => {
+    //       const av = itemHandler(itemA);
+    //       this.foreach(other, itemB => {
+    //         const bv = itemHandler(itemB);
+    //         if (av === bv) {
+    //           result.push(itemA.item);
+    //         }
+    //       });
+    //     });
+    //
+    //     return result;
+    //   });
+    return [];
   }
 
   /**
@@ -151,7 +154,7 @@ export class Arrays {
       // 检测是否需要递归查询
       const children = Functions.call(recursion, item);
       if (Validation.is(children, 'Array')) {
-        result = Arrays.seek(<T[]>children, observer, recursion);
+        result = Arrays.seek(children as unknown as T[], observer, recursion);
         if (Validation.notEmpty(result)) {
           return false;
         }
@@ -225,8 +228,13 @@ export class Arrays {
         return false;
       }
     });
-    const item = Logics.case(-1 !== index, arr[index]).getValue();
-    return { index: index, item };
+    // fixme
+    // const item = Logics.case(-1 !== index, arr[index]).getValue();
+    // return { index: index, item };
+    return {
+      index: index,
+      item: (-1 === index ? undefined : arr[index]) as any
+    };
   }
 
   /**
@@ -274,7 +282,9 @@ export class Arrays {
     predictor?: fns.ArrayPredictor<T>
   ): types.Nillable<T> {
     const el = Arrays.index(arr, condition, predictor);
-    return Logics.case(this.validateIndex(el), () => arr.splice(el.index, 1)[0]).getValue();
+    // fixme
+    // return Logics.case(this.validateIndex(el), () => arr.splice(el.index, 1)[0]).getValue();
+    return null;
   }
 
   /**
@@ -340,7 +350,7 @@ export class Arrays {
     const itemHandler = Builders.toArrayKeyMapperHandler(mapper);
     Arrays.foreach(arr, (el) => {
       const rk = itemHandler(el);
-      Jsons.computeIfAbsent(ret, rk, [] as T[]).push(el.item);
+      Jsons.computeIfAbsent(ret, rk as any, [] as T[]).push(el.item);
     });
     return ret;
   }
@@ -425,10 +435,11 @@ export class Arrays {
    * @param parentKey 被子节点指向的父节点属性名.
    * @param [onlyRoot=false] 是否从根节点移除所有子节点.
    */
-  static tree<T extends Record<CK, T[]> & Record<PK, any> & Record<PI, any>
-    , CK extends types.KeyOf<T>
-    , PK extends types.KeyOf<T>
-    , PI extends types.KeyOf<T>>(
+  static tree<T extends Record<CK, T[]> & Record<PK, any> & Record<PI, any>,
+    CK extends types.KeyOf<T>,
+    PK extends types.KeyOf<T>,
+    PI extends types.KeyOf<T>>
+  (
     arr: T[],
     childKey: CK,
     parentIndex: PI,

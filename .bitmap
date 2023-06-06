@@ -9,6 +9,12 @@
  */
 
 {
+    "array": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.5",
+        "mainFile": "index.ts",
+        "rootDir": "src/array"
+    },
     "build": {
         "scope": "git8023.toolkit",
         "version": "0.0.1",
@@ -26,6 +32,12 @@
         "version": "0.0.1",
         "mainFile": "Functions.ts",
         "rootDir": "src/funcs"
+    },
+    "json": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.5",
+        "mainFile": "Jsons.ts",
+        "rootDir": "src/json"
     },
     "object": {
         "scope": "git8023.toolkit",

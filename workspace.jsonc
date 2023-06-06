@@ -60,5 +60,10 @@
        **/
       // "teambit.react/react": { }
     }
+  },
+  "teambit.component/issues": {
+    "ignoreIssues": [
+      "CircularDependencies"
+    ]
   }
 }
