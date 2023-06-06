@@ -71,7 +71,7 @@
     },
     "storage": {
         "scope": "git8023.toolkit",
-        "version": "0.0.1",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "src/storage"
     },
