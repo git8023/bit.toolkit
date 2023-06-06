@@ -27,6 +27,12 @@
         "mainFile": "Cast.ts",
         "rootDir": "toolkit/cast"
     },
+    "err": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "src/err"
+    },
     "funcs": {
         "scope": "git8023.toolkit",
         "version": "0.0.1",
