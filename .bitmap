@@ -9,6 +9,12 @@
  */
 
 {
+    "build": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.1",
+        "mainFile": "Builders.ts",
+        "rootDir": "src/build"
+    },
     "cast": {
         "scope": "git8023.toolkit",
         "version": "0.0.1",
@@ -20,6 +26,12 @@
         "version": "0.0.1",
         "mainFile": "Functions.ts",
         "rootDir": "src/funcs"
+    },
+    "object": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.2",
+        "mainFile": "Objects.ts",
+        "rootDir": "src/object"
     },
     "promise": {
         "scope": "git8023.toolkit",
