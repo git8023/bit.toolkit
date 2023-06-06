@@ -4,10 +4,7 @@ import { Builders } from '@git8023/toolkit.build';
 import { Cast } from '@git8023/toolkit.cast';
 import { Functions } from '@git8023/toolkit.funcs';
 import { Validation } from '@git8023/toolkit.validation';
-
-// fixme wait
-// import { PropChains } from './PropChains';
-// import { asi, AsyncArrayStream } from './AsyncArrayStream';
+import { PropChains } from './PropChains';
 
 export class Jsons {
 
@@ -283,9 +280,7 @@ export class Jsons {
     o: T,
     propChain: (keyof T) | string,
   ): R {
-    // fixme
-    // return PropChains.getValue(o, String(propChain));
-    return o[propChain as keyof T] as any;
+    return PropChains.getValue(o, String(propChain));
   }
 
   /**
@@ -299,9 +294,7 @@ export class Jsons {
     propChain: (keyof T) | string,
     v: R,
   ): R {
-    // fixme
-    // return PropChains.setValue(o, String(propChain), v);
-    return (o[propChain as keyof T] = v as any);
+    return PropChains.setValue(o, String(propChain), v);
   }
 
   /**

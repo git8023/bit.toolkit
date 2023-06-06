@@ -22,6 +22,8 @@ importers:
 
   src/build: {}
 
+  src/err: {}
+
   src/funcs: {}
 
   src/json: {}
