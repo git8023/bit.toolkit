@@ -115,4 +115,28 @@ export namespace types {
      */
     vof: any
   }
+
+  /**
+   * 分页结构
+   */
+  export interface Page<T = any> {
+
+    /**列表数据*/
+    list?: T[];
+
+    /**每页数量*/
+    size?: number;
+
+    /**当前页码*/
+    current: number;
+
+    /**数据总量*/
+    total?: number;
+
+    /**总页数*/
+    pages?: number;
+
+    /**其他数据*/
+    [s: string]: any;
+  }
 }
