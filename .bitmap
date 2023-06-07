@@ -9,6 +9,12 @@
  */
 
 {
+    "_style": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.1",
+        "mainFile": "index.scss",
+        "rootDir": "src/_style"
+    },
     "array": {
         "scope": "git8023.toolkit",
         "version": "0.0.8",
