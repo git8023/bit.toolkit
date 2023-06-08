@@ -12,3 +12,4 @@ export * from '@git8023/toolkit.storage';
 export * from '@git8023/toolkit.string';
 export * from '@git8023/toolkit.type-define';
 export * from '@git8023/toolkit.validation';
+export * from '@git8023/toolkit.decorator';

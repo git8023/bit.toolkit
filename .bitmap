@@ -17,7 +17,7 @@
     },
     "all-export": {
         "scope": "git8023.toolkit",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "src/all-export"
     },
