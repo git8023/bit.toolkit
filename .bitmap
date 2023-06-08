@@ -15,6 +15,12 @@
         "mainFile": "index.scss",
         "rootDir": "src/_style"
     },
+    "all-export": {
+        "scope": "git8023.toolkit",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "src/all-export"
+    },
     "array": {
         "scope": "git8023.toolkit",
         "version": "0.0.10",
