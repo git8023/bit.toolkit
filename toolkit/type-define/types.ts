@@ -139,4 +139,19 @@ export namespace types {
     /**其他数据*/
     [s: string]: any;
   }
+
+  /** 公共实体 */
+  export interface BaseEntity {
+    /**主键ID*/
+    id: any;
+
+    /**创建人*/
+    creator: string;
+
+    /**创建时间*/
+    createTime: number;
+
+    /**最后修改时间*/
+    lastModifyTime: number;
+  }
 }
