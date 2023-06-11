@@ -2,7 +2,7 @@ import { Arrays } from '@git8023/toolkit.array';
 import { Functions } from '@git8023/toolkit.funcs';
 import { fns } from '@git8023/toolkit.type-define';
 
-export class Broadcast<C, K = keyof C> {
+export class IBroadcast<C, K = keyof C> {
   /**
    * 订阅关系
    *
@@ -20,7 +20,7 @@ export class Broadcast<C, K = keyof C> {
   emit(
     channel: K,
     args?: any,
-  ): Broadcast<C, K> {
+  ): IBroadcast<C, K> {
     const handlers = this.get(channel);
     Arrays.foreach(handlers, (el) => {
       Functions.call(el.item, args);
@@ -42,7 +42,7 @@ export class Broadcast<C, K = keyof C> {
     immediate = false,
     lazy = 0,
     ...args: any[]
-  ): Broadcast<C, K> {
+  ): IBroadcast<C, K> {
     this.get(channel).push(fn);
     if (immediate)
       Functions.timer(fn, false, lazy, false, ...args);
@@ -57,7 +57,7 @@ export class Broadcast<C, K = keyof C> {
   off(
     channel: K,
     fn: fns.Consume<any>,
-  ): Broadcast<C, K> {
+  ): IBroadcast<C, K> {
     const handlers = this.get(channel);
     Arrays.remove(handlers, fn);
     return this;
@@ -74,3 +74,9 @@ export class Broadcast<C, K = keyof C> {
     return handlers;
   }
 }
+
+/**
+ * 默认全局广播
+ * - 如果需要频道语法提示, 需使用 new IBroadCast<Type>()
+ */
+export const broadcast = new IBroadcast<any, string>();

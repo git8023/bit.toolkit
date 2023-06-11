@@ -1,1 +1,1 @@
-export { Broadcast } from './Broadcast';
+export { IBroadcast, broadcast } from './Broadcast';
