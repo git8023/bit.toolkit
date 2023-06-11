@@ -17,25 +17,25 @@
     },
     "all-export": {
         "scope": "git8023.toolkit",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "src/all-export"
     },
     "array": {
         "scope": "git8023.toolkit",
-        "version": "0.0.10",
+        "version": "0.0.11",
         "mainFile": "index.ts",
         "rootDir": "src/array"
     },
     "broadcast": {
         "scope": "git8023.toolkit",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "src/broadcast"
     },
     "build": {
         "scope": "git8023.toolkit",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "mainFile": "Builders.ts",
         "rootDir": "src/build"
     },
@@ -59,31 +59,31 @@
     },
     "funcs": {
         "scope": "git8023.toolkit",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "Functions.ts",
         "rootDir": "src/funcs"
     },
     "json": {
         "scope": "git8023.toolkit",
-        "version": "0.0.10",
+        "version": "0.0.11",
         "mainFile": "index.ts",
         "rootDir": "src/json"
     },
     "logic": {
         "scope": "git8023.toolkit",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "src/logic"
     },
     "object": {
         "scope": "git8023.toolkit",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "src/object"
     },
     "promise": {
         "scope": "git8023.toolkit",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "Promises.ts",
         "rootDir": "src/promise"
     },
@@ -95,7 +95,7 @@
     },
     "string": {
         "scope": "git8023.toolkit",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "src/string"
     },
