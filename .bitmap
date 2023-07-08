@@ -17,25 +17,25 @@
     },
     "all-export": {
         "scope": "git8023.toolkit",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "mainFile": "index.ts",
         "rootDir": "src/all-export"
     },
     "array": {
         "scope": "git8023.toolkit",
-        "version": "0.0.12",
+        "version": "0.0.13",
         "mainFile": "index.ts",
         "rootDir": "src/array"
     },
     "broadcast": {
         "scope": "git8023.toolkit",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "mainFile": "index.ts",
         "rootDir": "src/broadcast"
     },
     "build": {
         "scope": "git8023.toolkit",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "Builders.ts",
         "rootDir": "src/build"
     },
@@ -47,67 +47,67 @@
     },
     "decorator": {
         "scope": "git8023.toolkit",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "src/decorator"
     },
     "err": {
         "scope": "git8023.toolkit",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "src/err"
     },
     "funcs": {
         "scope": "git8023.toolkit",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "Functions.ts",
         "rootDir": "src/funcs"
     },
     "json": {
         "scope": "git8023.toolkit",
-        "version": "0.0.12",
+        "version": "0.0.13",
         "mainFile": "index.ts",
         "rootDir": "src/json"
     },
     "logic": {
         "scope": "git8023.toolkit",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "src/logic"
     },
     "object": {
         "scope": "git8023.toolkit",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "mainFile": "index.ts",
         "rootDir": "src/object"
     },
     "promise": {
         "scope": "git8023.toolkit",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "Promises.ts",
         "rootDir": "src/promise"
     },
     "storage": {
         "scope": "git8023.toolkit",
-        "version": "0.0.6",
+        "version": "0.0.7",
         "mainFile": "index.ts",
         "rootDir": "src/storage"
     },
     "string": {
         "scope": "git8023.toolkit",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "src/string"
     },
     "type-define": {
         "scope": "git8023.toolkit",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "toolkit/type-define"
     },
     "validation": {
         "scope": "git8023.toolkit",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "Validation.ts",
         "rootDir": "toolkit/validation"
     },

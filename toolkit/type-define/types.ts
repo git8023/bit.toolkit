@@ -136,8 +136,19 @@ export namespace types {
     /**总页数*/
     pages?: number;
 
+    /** 排序规则 */
+    orderRules?: OrderRule[];
+
     /**其他数据*/
     [s: string]: any;
+  }
+
+  /** 分页数据排序规则 */
+  export interface OrderRule {
+    /** 数据字段 */
+    field: string;
+    /** 升序 */
+    asc?: boolean;
   }
 
   /** 公共实体 */
